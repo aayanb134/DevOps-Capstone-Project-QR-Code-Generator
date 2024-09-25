@@ -4,6 +4,16 @@ on:
   [workflow_dispatch] # allows you to manually trigger the workflow.
   # you can choose to trigger on push if you wish.
 
+# on:
+#   push:
+#     branches:
+#       - main
+#     paths:
+#       - 'api/dockerfile'
+#       - 'front-end/dockerfile'
+
+# the above only runs the workflow when the dockerfiles are changed
+
 jobs:
   publish_images:
     runs-on: ubuntu-latest
