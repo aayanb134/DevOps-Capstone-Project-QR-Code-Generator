@@ -15,3 +15,6 @@ jobs:
       - name: push image to docker hub
         run: |
           docker push devops-capstone-backend.latest
+
+# REMEMBER TO CREATE AN ACCESS TOKEN IN DOCKER HUB TO ALLOW GHA TO
+# AUTHENTICATE TO YOUR ACCOUNT ON DOCKER HUB
