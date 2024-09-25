@@ -1,0 +1,17 @@
+name: Build & publish image to Docker Hub
+
+on:
+  [workflow_dispatch] # allows you to manually trigger the workflow.
+  # you can choose to trigger on push if you wish.
+
+jobs:
+  publish_images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build
+        run: docker build ./api/ -t devops-capstone-backend:latest
+      - name: push image to docker hub
+        run: |
+          docker push devops-capstone-backend.latest
