@@ -11,11 +11,14 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       - name: build
-        run: docker build ./api/ -t devops-capstone-backend:latest
+        run: |
+          docker build ./api/ -t devops-capstone-backend:latest
+          docker build ./front-end/ -t devops-capstone-frontend:latest
       - name: push image to docker hub
         run: |
           docker login -u USERNAME -p ${{secrets.GITHUB_TOKEN}}
           docker push devops-capstone-backend.latest
+          docker push devops-capstone-frontend.latest
 
 # REMEMBER TO CREATE AN ACCESS TOKEN IN DOCKER HUB TO ALLOW GHA TO
 # AUTHENTICATE TO YOUR ACCOUNT ON DOCKER HUB
