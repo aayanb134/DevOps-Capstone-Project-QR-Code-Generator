@@ -1,0 +1,33 @@
+# YAML file to deploy kubernetes cluster
+
+# apiVersion: specifies api version
+# kind: Deployment specifies the type of resource
+# metadata: specifies the metadata of the resource
+# spec: specifies the specification of the resource
+# replicas: specifies the number of replicas
+# selector: specifies the selector for the resource
+# template: specifies the template for the resource
+# containers: specifies the containers for the resource
+# name: specifies the name of the container
+# image: specifies the image for the container
+# ports: specifies the ports for the container
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capstone-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: capstone-frontend
+  template:
+    metadata:
+      labels:
+        app: capstone-frontend
+    spec:
+      containers:
+        - name: capstone-frontend
+          image: devops-capstone-frontend:latest
+          ports:
+            - containerPort: 3000
