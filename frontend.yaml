@@ -31,3 +31,18 @@ spec:
           image: devops-capstone-frontend:latest
           ports:
             - containerPort: 3000
+
+# "---" indicates multi resource yaml file
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: capstone-frontend-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: capstone-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000

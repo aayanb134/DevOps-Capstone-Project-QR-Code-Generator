@@ -15,3 +15,17 @@ spec:
       containers:
         - name: capstone-backend
           image: devops-capstone-backend:latest
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: capstone-backend-service
+spec:
+  type: ClusterIP
+  selector:
+    app: capstone-backend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
