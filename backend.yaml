@@ -15,6 +15,7 @@ spec:
       containers:
         - name: capstone-backend
           image: devops-capstone-backend:latest
+          - containerPort: 80
 
 ---
 apiVersion: v1
